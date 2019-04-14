@@ -17,6 +17,8 @@ namespace OSproject
         public static bool RRflag;
         public static bool SJF_premptive;
         public static bool SJF_non_premptive;
+        public static bool P_premptive;
+        public static bool P_non_premptive;
         public main_menu()
         {
             InitializeComponent();
@@ -70,6 +72,21 @@ namespace OSproject
                         SJF_non_premptive = true;
                         shortestJobFirst sjf = new shortestJobFirst();
                         sjf.Show();
+                        this.Hide();
+                    }
+                    else if (selected == "Priority (Pre-emptive)")
+                    {
+                        P_premptive = true;
+                        Priority pp = new Priority();
+                        pp.Show();
+                        this.Hide();
+                       
+                    }
+                    else if (selected == "Priority (Non-Pre-emptive)")
+                    {
+                        P_non_premptive = true;
+                        Priority pp = new Priority();
+                        pp.Show();
                         this.Hide();
                     }
 

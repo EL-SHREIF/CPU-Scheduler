@@ -64,6 +64,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="roundrobin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="roundrobin.Designer.cs">
+      <DependentUpon>roundrobin.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FCFSInfo.resx">
       <DependentUpon>FCFSInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -82,6 +88,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="roundrobin.resx">
+      <DependentUpon>roundrobin.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

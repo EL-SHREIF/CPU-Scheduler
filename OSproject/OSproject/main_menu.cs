@@ -14,6 +14,7 @@ namespace OSproject
     {
         public static int MainNumberOfProcesses;
         public static bool MainFCFSflag;
+        public static bool RRflag;
         public main_menu()
         {
             InitializeComponent();
@@ -48,6 +49,14 @@ namespace OSproject
                  
                         this.Hide();
                     }
+                    else if (selected == "RR")
+                    {
+                        RRflag = true;
+                        roundrobin RR = new roundrobin();
+                        RR.Show();
+                        this.Hide();
+                    }
+
                 }
                 //MessageBox.Show(selected);
             }

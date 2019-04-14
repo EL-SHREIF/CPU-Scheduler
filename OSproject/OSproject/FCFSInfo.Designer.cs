@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCFSInfo));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.FCFSSimulateBtn = new System.Windows.Forms.Button();
             this.FCFSBackBtn = new System.Windows.Forms.Button();
+            this.FCFSSimulateBtn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -62,16 +62,16 @@
             this.splitContainer1.SplitterDistance = 322;
             this.splitContainer1.TabIndex = 0;
             // 
-            // pictureBox1
+            // FCFSBackBtn
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(583, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(43, 28);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.FCFSBackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.FCFSBackBtn.Location = new System.Drawing.Point(517, 77);
+            this.FCFSBackBtn.Name = "FCFSBackBtn";
+            this.FCFSBackBtn.Size = new System.Drawing.Size(109, 37);
+            this.FCFSBackBtn.TabIndex = 0;
+            this.FCFSBackBtn.Text = "Back";
+            this.FCFSBackBtn.UseVisualStyleBackColor = true;
+            this.FCFSBackBtn.Click += new System.EventHandler(this.FCFSBackBtn_Click);
             // 
             // FCFSSimulateBtn
             // 
@@ -83,15 +83,16 @@
             this.FCFSSimulateBtn.Text = "simulate";
             this.FCFSSimulateBtn.UseVisualStyleBackColor = true;
             // 
-            // FCFSBackBtn
+            // pictureBox1
             // 
-            this.FCFSBackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.FCFSBackBtn.Location = new System.Drawing.Point(517, 77);
-            this.FCFSBackBtn.Name = "FCFSBackBtn";
-            this.FCFSBackBtn.Size = new System.Drawing.Size(109, 37);
-            this.FCFSBackBtn.TabIndex = 0;
-            this.FCFSBackBtn.Text = "Back";
-            this.FCFSBackBtn.UseVisualStyleBackColor = true;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(583, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(43, 28);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // FCFSInfo
             // 

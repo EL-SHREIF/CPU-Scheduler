@@ -139,6 +139,16 @@ namespace OSproject
                 y += 30;
             }
         }
+
+        private void FCFSBackBtn_Click(object sender, EventArgs e)
+        {
+
+            main_menu main = new main_menu();
+            main.Show();
+            this.Hide();
+
+
+        }
     }
 }
 

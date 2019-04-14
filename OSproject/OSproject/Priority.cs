@@ -10,8 +10,12 @@ using System.Windows.Forms;
 
 namespace OSproject
 {
+    
     public partial class Priority : Form
     {
+        public static int x_arival = 50;
+        public static int x_brust = 200;
+        public static int x_priority = 350;
         public Priority()
         {
             InitializeComponent();
@@ -21,6 +25,7 @@ namespace OSproject
             MakinglabelNameOfproccess();
             MakinglabelArrivalTime();
             MakinglabelBurstTime();
+            Makinglabelpriority();
             FormFCFS();
 
         }
@@ -32,7 +37,6 @@ namespace OSproject
         private void MakingLabelFCFS(int xposition, int yposition, int index)
         {
 
-
             Label lbProcessName = new Label();
             lbProcessName.Size = new Size(100, 30);
             lbProcessName.Location = new Point(xposition, yposition);
@@ -42,6 +46,7 @@ namespace OSproject
             lbProcessName.Font = new Font("Arial", 23);
             splitContainer1.Panel1.Controls.Add(lbProcessName);
         }
+
         private void MakinglabelNameOfproccess()
         {
             Label lbProcessName = new Label();
@@ -53,33 +58,50 @@ namespace OSproject
             lbProcessName.Font = new Font("Arial", 14);
             splitContainer1.Panel1.Controls.Add(lbProcessName);
         }
+
         private void MakinglabelArrivalTime()
         {
             Label lb = new Label();
-            lb.Size = new Size(200, 50);
-            lb.Location = new Point(60, 0);
+            lb.Size = new Size(100, 50);
+            lb.Location = new Point(x_arival, 0);
             lb.Text = "ArrivalTime";
             lb.BackColor = Color.Azure;
             lb.TextAlign = ContentAlignment.MiddleCenter;
             lb.Font = new Font("Arial", 14);
             splitContainer1.Panel2.Controls.Add(lb);
         }
+
         private void MakinglabelBurstTime()
         {
             Label lb = new Label();
-            lb.Size = new Size(200, 50);
-            lb.Location = new Point(300, 0);
+            lb.Size = new Size(100, 50);
+            lb.Location = new Point(x_brust, 0);
             lb.Text = "BurstTime";
             lb.BackColor = Color.Azure;
             lb.TextAlign = ContentAlignment.MiddleCenter;
             lb.Font = new Font("Arial", 14);
             splitContainer1.Panel2.Controls.Add(lb);
         }
+
+        private void Makinglabelpriority()
+        {
+            Label lb = new Label();
+            lb.Size = new Size(100, 50);
+            lb.Location = new Point(x_priority, 0);
+            lb.Text = "Priority";
+            lb.BackColor = Color.Azure;
+            lb.TextAlign = ContentAlignment.MiddleCenter;
+            lb.Font = new Font("Arial", 14);
+            splitContainer1.Panel2.Controls.Add(lb);
+        }
+
+
         private void FormFCFS()
         {
             ProcessesCol();
             arrivalTimeCol();
             BurstTimeCol();
+            priorityCol();
         }
         private void ProcessesCol()
         {
@@ -101,6 +123,7 @@ namespace OSproject
             }
 
         }
+
         private void arrivalTimeCol()
         {
             int y = 60;
@@ -108,8 +131,8 @@ namespace OSproject
             {
 
                 NumericUpDown num = new NumericUpDown();
-                num.Size = new Size(200, 25);
-                num.Location = new Point(60, y);
+                num.Size = new Size(100, 25);
+                num.Location = new Point(x_arival, y);
                 num.ReadOnly = true;
                 num.Name = "PriorityProcessArrivalTime" + (i + 1).ToString();
                 num.BackColor = Color.Azure;
@@ -125,8 +148,8 @@ namespace OSproject
             {
 
                 NumericUpDown num = new NumericUpDown();
-                num.Size = new Size(200, 25);
-                num.Location = new Point(300, y);
+                num.Size = new Size(100, 25);
+                num.Location = new Point(x_brust, y);
                 num.ReadOnly = true;
                 num.Name = "PriorityProcessBurstTime" + (i + 1).ToString();
                 num.BackColor = Color.Azure;
@@ -135,6 +158,32 @@ namespace OSproject
                 splitContainer1.Panel2.Controls.Add(num);
                 y += 30;
             }
+        }
+
+        private void priorityCol()
+        {
+            int y = 60;
+            for (int i = 0; i < main_menu.MainNumberOfProcesses; i++)
+            {
+
+                NumericUpDown num = new NumericUpDown();
+                num.Size = new Size(100, 25);
+                num.Location = new Point(x_priority, y);
+                num.ReadOnly = true;
+                num.Name = "Priority" + (i + 1).ToString();
+                num.BackColor = Color.Azure;
+                num.Font = new Font("Arial", 14);
+                num.Minimum = 1;
+                splitContainer1.Panel2.Controls.Add(num);
+                y += 30;
+            }
+        }
+
+        private void FCFSBackBtn_Click(object sender, EventArgs e)
+        {
+            main_menu main = new main_menu();
+            main.Show();
+            this.Hide();
         }
     }
 }

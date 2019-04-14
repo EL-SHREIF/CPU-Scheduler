@@ -1,0 +1,11 @@
+C:\Users\user\Desktop\C# repo\scheduler-project\OSproject\OSproject\bin\Debug\OSproject.exe.config
+C:\Users\user\Desktop\C# repo\scheduler-project\OSproject\OSproject\bin\Debug\OSproject.exe
+C:\Users\user\Desktop\C# repo\scheduler-project\OSproject\OSproject\bin\Debug\OSproject.pdb
+C:\Users\user\Desktop\C# repo\scheduler-project\OSproject\OSproject\obj\Debug\OSproject.Form1.resources
+C:\Users\user\Desktop\C# repo\scheduler-project\OSproject\OSproject\obj\Debug\OSproject.Properties.Resources.resources
+C:\Users\user\Desktop\C# repo\scheduler-project\OSproject\OSproject\obj\Debug\OSproject.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\C# repo\scheduler-project\OSproject\OSproject\obj\Debug\OSproject.exe
+C:\Users\user\Desktop\C# repo\scheduler-project\OSproject\OSproject\obj\Debug\OSproject.pdb
+C:\Users\user\Desktop\C# repo\scheduler-project\OSproject\OSproject\obj\Debug\OSproject.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\C# repo\scheduler-project\OSproject\OSproject\obj\Debug\OSproject.main_menu.resources
+C:\Users\user\Desktop\C# repo\scheduler-project\OSproject\OSproject\obj\Debug\OSproject.FCFSInfo.resources

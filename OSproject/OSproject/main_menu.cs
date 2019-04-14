@@ -15,6 +15,8 @@ namespace OSproject
         public static int MainNumberOfProcesses;
         public static bool MainFCFSflag;
         public static bool RRflag;
+        public static bool SJF_premptive;
+        public static bool SJF_non_premptive;
         public main_menu()
         {
             InitializeComponent();
@@ -56,6 +58,20 @@ namespace OSproject
                         RR.Show();
                         this.Hide();
                     }
+                    else if (selected == "SJF  (Pre-emptive)")
+                    {
+                        SJF_premptive = true;
+                        shortestJobFirst sjf = new shortestJobFirst();
+                        sjf.Show();
+                        this.Hide();
+                    }
+                    else if (selected == "SJF  (Non-Pre-emptive)")
+                    {
+                        SJF_non_premptive = true;
+                        shortestJobFirst sjf = new shortestJobFirst();
+                        sjf.Show();
+                        this.Hide();
+                    }
 
                 }
                 //MessageBox.Show(selected);
@@ -64,6 +80,11 @@ namespace OSproject
             {
                 MessageBox.Show("please fill data");
             }
+        }
+
+        private void AlgorithmsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

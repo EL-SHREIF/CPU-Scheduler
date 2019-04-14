@@ -70,6 +70,12 @@
     <Compile Include="roundrobin.Designer.cs">
       <DependentUpon>roundrobin.cs</DependentUpon>
     </Compile>
+    <Compile Include="shortestJobFirst.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="shortestJobFirst.Designer.cs">
+      <DependentUpon>shortestJobFirst.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FCFSInfo.resx">
       <DependentUpon>FCFSInfo.cs</DependentUpon>
     </EmbeddedResource>

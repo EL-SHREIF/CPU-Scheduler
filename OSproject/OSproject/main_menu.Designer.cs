@@ -93,18 +93,20 @@
             // AlgorithmsList
             // 
             this.AlgorithmsList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AlgorithmsList.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AlgorithmsList.FormattingEnabled = true;
             this.AlgorithmsList.Items.AddRange(new object[] {
             "FCFS",
             "RR",
-            "Priority(Pre-emptive)",
-            "Priority(Non-Pre-emptive)",
-            "SJF(Pre-emptive)",
-            "SJF(Non-Pre-emptive)"});
+            "Priority (Pre-emptive)",
+            "Priority (Non-Pre-emptive)",
+            "SJF  (Pre-emptive)",
+            "SJF  (Non-Pre-emptive)"});
             this.AlgorithmsList.Location = new System.Drawing.Point(325, 182);
             this.AlgorithmsList.Name = "AlgorithmsList";
-            this.AlgorithmsList.Size = new System.Drawing.Size(243, 21);
+            this.AlgorithmsList.Size = new System.Drawing.Size(243, 27);
             this.AlgorithmsList.TabIndex = 3;
+            this.AlgorithmsList.SelectedIndexChanged += new System.EventHandler(this.AlgorithmsList_SelectedIndexChanged);
             // 
             // panel3
             // 

@@ -61,6 +61,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.FCFSBackBtn);
             this.splitContainer1.Panel2.Controls.Add(this.FCFSSimulateBtn);
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox1);
+            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Size = new System.Drawing.Size(952, 293);
             this.splitContainer1.SplitterDistance = 322;
             this.splitContainer1.TabIndex = 0;
@@ -74,6 +75,7 @@
             this.FCFSBackBtn.TabIndex = 0;
             this.FCFSBackBtn.Text = "Back";
             this.FCFSBackBtn.UseVisualStyleBackColor = true;
+            this.FCFSBackBtn.Click += new System.EventHandler(this.FCFSBackBtn_Click);
             // 
             // FCFSSimulateBtn
             // 

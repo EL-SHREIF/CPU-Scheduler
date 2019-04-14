@@ -143,5 +143,17 @@ namespace OSproject
         {
 
         }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void FCFSBackBtn_Click(object sender, EventArgs e)
+        {
+            main_menu main = new main_menu();
+            main.Show();
+            this.Hide();
+        }
     }
 }

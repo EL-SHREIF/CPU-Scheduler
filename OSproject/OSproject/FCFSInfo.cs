@@ -21,64 +21,124 @@ namespace OSproject
 
         private void FCFSInfo_Load(object sender, EventArgs e)
         {
-            int x1 = 140;
-            int y1 = 0;
-            int x2 = 0; 
-            int y2 = 0;
-            for (int i = 0; i < main_menu.MainNumberOfProcesses; i++)
-            {
-               
-                x2=0;
-                Label lbProcessName = new Label();
-           
-                lbProcessName.Size=new Size(100,25);
-                lbProcessName.Location = new Point(x1, y1);
-                lbProcessName.Text = "P" + (i + 1).ToString();
-                splitContainer1.Panel1.Controls.Add(lbProcessName);
-                y1 += 30;
-
-                Label arrivalTime = new Label();
-                arrivalTime.Size = new Size(80, 25);
-                arrivalTime.Location = new Point(x2, y2);
-                arrivalTime.Text = "ArrivalTime:";
-                splitContainer1.Panel2.Controls.Add(arrivalTime);
-                x2 += 40;
-
-                TextBox txtProcess = new TextBox();
-                txtProcess.Size = new Size(150, 25);
-                txtProcess.Name = "q" + (i + 1).ToString();
-                txtProcess.Location = new Point(x2, y2);
-                splitContainer1.Panel2.Controls.Add(txtProcess);
-                x2 += 80;
-
-                Label burstTime = new Label();
-                burstTime.Size = new Size(80, 25);
-                burstTime.Location = new Point(x2, y2);
-                burstTime.Text = "BurstTime:";
-                splitContainer1.Panel2.Controls.Add(burstTime);
-                x2 += 40;
-
-                TextBox txtProcess2 = new TextBox();
-                txtProcess2.Size = new Size(150, 25);
-                txtProcess2.Name = "q" + (i + 1).ToString();
-                txtProcess2.Location = new Point(x2, y2);
-                splitContainer1.Panel2.Controls.Add(txtProcess);
-                x2 += 40;
-
-                y2 += 25;
-
-                
-            }
+            MakinglabelNameOfproccess();
+            MakinglabelArrivalTime();
+            MakinglabelBurstTime();
+            FormFCFS();
             
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+        private void MakingLabelFCFS(int xposition,int yposition,int index)
+        {
+            
+           
+            Label lbProcessName = new Label();
+            lbProcessName.Size = new Size(100, 30);
+            lbProcessName.Location = new Point(xposition, yposition);
+            lbProcessName.Text = "P" + (index + 1).ToString();
+            lbProcessName.BackColor = Color.Azure;
+            lbProcessName.TextAlign = ContentAlignment.MiddleCenter;
+            lbProcessName.Font = new Font("Arial", 23);
+            splitContainer1.Panel1.Controls.Add(lbProcessName);
+        }
+        private void MakinglabelNameOfproccess()
+         {
+            Label lbProcessName = new Label();
+            lbProcessName.Size = new Size(200, 50);
+            lbProcessName.Location = new Point(60,0);
+            lbProcessName.Text = "Proccess_Name";
+            lbProcessName.BackColor = Color.Azure;
+            lbProcessName.TextAlign = ContentAlignment.MiddleCenter;
+            lbProcessName.Font = new Font("Arial", 14);
+            splitContainer1.Panel1.Controls.Add(lbProcessName);
+         }
+        private void MakinglabelArrivalTime()
+        {
+            Label lb= new Label();
+            lb.Size = new Size(200, 50);
+            lb.Location = new Point(60, 0);
+            lb.Text = "ArrivalTime";
+            lb.BackColor = Color.Azure;
+            lb.TextAlign = ContentAlignment.MiddleCenter;
+            lb.Font = new Font("Arial", 14);
+            splitContainer1.Panel2.Controls.Add(lb);
+        }
+        private void MakinglabelBurstTime()
+        {
+            Label lb = new Label();
+            lb.Size = new Size(200, 50);
+            lb.Location = new Point(300, 0);
+            lb.Text = "BurstTime";
+            lb.BackColor = Color.Azure;
+            lb.TextAlign = ContentAlignment.MiddleCenter;
+            lb.Font = new Font("Arial", 14);
+            splitContainer1.Panel2.Controls.Add(lb);
+        }
+        private void FormFCFS()
+        {
+            ProcessesCol();
+            arrivalTimeCol();
+            BurstTimeCol();
+        }
+        private void ProcessesCol()
+        {
+            int y = 60;
+            for (int i = 0; i < main_menu.MainNumberOfProcesses; i++)
+            {
 
-       
+
+                Label lbProcessName = new Label();
+                lbProcessName.Size = new Size(100, 30);
+                lbProcessName.Location = new Point(100, y);
+                lbProcessName.Text = "P"+(i+1).ToString();
+                lbProcessName.BackColor = Color.Azure;
+                lbProcessName.TextAlign = ContentAlignment.MiddleCenter;
+                lbProcessName.Font = new Font("Arial", 14);
+                splitContainer1.Panel1.Controls.Add(lbProcessName);
+                y += 30;
+
+            }
+                
+        }
+        private void arrivalTimeCol()
+        {
+            int y = 60;
+            for (int i = 0; i < main_menu.MainNumberOfProcesses; i++)
+            {
+
+                NumericUpDown num = new NumericUpDown();
+                num.Size = new Size(200, 25);
+                num.Location = new Point(60, y);
+                num.ReadOnly = true;
+                num.Name = "FCFSProcessArrivalTime" + (i + 1).ToString();
+                num.BackColor = Color.Azure;
+                num.Font = new Font("Arial", 14);
+                splitContainer1.Panel2.Controls.Add(num);
+                y += 30;
+            }
+        }
+        private void BurstTimeCol()
+        {
+            int y = 60;
+            for (int i = 0; i < main_menu.MainNumberOfProcesses; i++)
+            {
+
+                NumericUpDown num = new NumericUpDown();
+                num.Size = new Size(200, 25);
+                num.Location = new Point(300, y);
+                num.ReadOnly = true;
+                num.Name = "FCFSProcessBurstTime" + (i + 1).ToString();
+                num.BackColor = Color.Azure;
+                num.Font = new Font("Arial", 14);
+                num.Minimum = 1;
+                splitContainer1.Panel2.Controls.Add(num);
+                y += 30;
+            }
+        }
     }
 }
 

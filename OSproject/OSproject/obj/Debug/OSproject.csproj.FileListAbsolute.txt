@@ -22,3 +22,4 @@ E:\github\CPU-Scheduler\OSproject\OSproject\obj\Debug\OSproject.Properties.Resou
 E:\github\CPU-Scheduler\OSproject\OSproject\obj\Debug\OSproject.csproj.GenerateResource.Cache
 E:\github\CPU-Scheduler\OSproject\OSproject\obj\Debug\OSproject.roundrobin.resources
 E:\github\CPU-Scheduler\OSproject\OSproject\obj\Debug\OSproject.shortestJobFirst.resources
+E:\github\CPU-Scheduler\OSproject\OSproject\obj\Debug\OSproject.Priority.resources

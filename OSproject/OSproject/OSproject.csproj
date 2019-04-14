@@ -91,6 +91,9 @@
     <EmbeddedResource Include="main_menu.resx">
       <DependentUpon>main_menu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Priority.resx">
+      <DependentUpon>Priority.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

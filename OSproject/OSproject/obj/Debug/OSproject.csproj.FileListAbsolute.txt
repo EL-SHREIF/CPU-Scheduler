@@ -23,3 +23,4 @@ E:\github\CPU-Scheduler\OSproject\OSproject\obj\Debug\OSproject.csproj.GenerateR
 E:\github\CPU-Scheduler\OSproject\OSproject\obj\Debug\OSproject.roundrobin.resources
 E:\github\CPU-Scheduler\OSproject\OSproject\obj\Debug\OSproject.shortestJobFirst.resources
 E:\github\CPU-Scheduler\OSproject\OSproject\obj\Debug\OSproject.Priority.resources
+E:\github\CPU-Scheduler\OSproject\OSproject\obj\Debug\OSproject.RR_output.resources

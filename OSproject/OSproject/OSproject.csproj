@@ -68,6 +68,7 @@
     <Compile Include="Priority.Designer.cs">
       <DependentUpon>Priority.cs</DependentUpon>
     </Compile>
+    <Compile Include="process.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="roundrobin.cs">
@@ -75,6 +76,13 @@
     </Compile>
     <Compile Include="roundrobin.Designer.cs">
       <DependentUpon>roundrobin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="roundrobinschedular.cs" />
+    <Compile Include="RR_output.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RR_output.Designer.cs">
+      <DependentUpon>RR_output.cs</DependentUpon>
     </Compile>
     <Compile Include="shortestJobFirst.cs">
       <SubType>Form</SubType>
@@ -105,6 +113,9 @@
     </Compile>
     <EmbeddedResource Include="roundrobin.resx">
       <DependentUpon>roundrobin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RR_output.resx">
+      <DependentUpon>RR_output.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="shortestJobFirst.resx">
       <DependentUpon>shortestJobFirst.cs</DependentUpon>

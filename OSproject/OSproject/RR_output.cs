@@ -12,16 +12,41 @@ namespace OSproject
 {
     public partial class RR_output : Form
     {
+        Panel[] panelArray;
+        Panel[] panelExColorProcess;
+        Label[] processWaitingTime;
+        Label[] processTurnaroundTime;
+        Label[] valueGanttChart;
+        Label[] label_process;
+
+        roundrobinschedular rr_sch_her;
+
+        static Color colorProcess1 = Color.Red;
+        static Color colorProcess2 = Color.Yellow;
+        static Color colorProcess3 = Color.Magenta;
+        static Color colorProcess4 = Color.Blue;
+        static Color colorProcess5 = Color.Lime;
+        static Color colorProcess6 = Color.Chocolate;
+        static Color colorProcess7 = Color.Aqua;
+        static Color colorProcess8 = Color.DarkGreen;
+        static Color colorProcess9 = Color.Maroon;
+        static Color colorProcess10 = Color.Pink;
+        static Color colorFreeTime = Color.Silver;
+        static Color color_btn_choose = Color.Silver;
+        static Color color_btn_not_choose = Color.WhiteSmoke;
+
+
         public RR_output()
         {
             InitializeComponent();
+            rr_sch_her = main_menu.rr_sch;
         }
         public void DrawGanttChart()
         {
             int xPos = 9, yPos = 10;
             tabPage_GanttChart.AutoScroll = true;
             tabPage_GanttChart.VerticalScroll.LargeChange = tabPage_GanttChart.VerticalScroll.Maximum / 2;
-            for (int i = 0; i < myScheduling.number_ganttChart; i++)
+            for (int i = 0; i < rr_sch_her.number_ganttChart; i++)
             {
                 panelArray[i] = new Panel();
                 panelArray[i].Width = 20;

@@ -12,10 +12,14 @@ namespace OSproject
 {
     public partial class roundrobin : Form
     {
-        public int quantum_time;
+        public  static int quantum_time;  
+        NumericUpDown[] arrival;
+        NumericUpDown[] brust;
         public roundrobin()
         {
             InitializeComponent();
+            arrival = new NumericUpDown [main_menu.MainNumberOfProcesses];
+            brust = new NumericUpDown [main_menu.MainNumberOfProcesses];
         }
 
         private void RR_Load(object sender, EventArgs e)
@@ -33,7 +37,6 @@ namespace OSproject
 
         private void MakingLabelFCFS(int xposition, int yposition, int index)
         {
-
 
             Label lbProcessName = new Label();
             lbProcessName.Size = new Size(100, 30);
@@ -79,7 +82,7 @@ namespace OSproject
             lb.Font = new Font("Arial", 14);
             splitContainer1.Panel2.Controls.Add(lb);
         }
-
+       
         private void FormRR()
         {
             ProcessesCol();
@@ -100,7 +103,6 @@ namespace OSproject
                 lbProcessName.Font = new Font("Arial", 14);
                 splitContainer1.Panel1.Controls.Add(lbProcessName);
                 y += 30;
-
             }
 
         }
@@ -109,7 +111,6 @@ namespace OSproject
             int y = 60;
             for (int i = 0; i < main_menu.MainNumberOfProcesses; i++)
             {
-
                 NumericUpDown num = new NumericUpDown();
                 num.Size = new Size(200, 25);
                 num.Location = new Point(60, y);
@@ -119,6 +120,7 @@ namespace OSproject
                 num.Font = new Font("Arial", 14);
                 splitContainer1.Panel2.Controls.Add(num);
                 y += 30;
+                arrival[i] = num;
             }
         }
         private void BurstTimeCol()
@@ -126,7 +128,6 @@ namespace OSproject
             int y = 60;
             for (int i = 0; i < main_menu.MainNumberOfProcesses; i++)
             {
-
                 NumericUpDown num = new NumericUpDown();
                 num.Size = new Size(200, 25);
                 num.Location = new Point(300, y);
@@ -136,6 +137,7 @@ namespace OSproject
                 num.Font = new Font("Arial", 14);
                 num.Minimum = 1;
                 splitContainer1.Panel2.Controls.Add(num);
+                brust[i] = num;
                 y += 30;
             }
         }
@@ -162,13 +164,25 @@ namespace OSproject
             try
             {
                 quantum_time = (int)NumberOfProcessesDropList.Value;
-                if (quantum_time == 0) MessageBox.Show("please min value of Q is 1 process");
+                if (quantum_time == 0) MessageBox.Show("please min value of Q is 1");
                 else
                 {
 
+                    main_menu.rr_sch.setq(quantum_time);
+                    for (int i = 0; i < main_menu.MainNumberOfProcesses; i++)
+                    {
+                        NumericUpDown num1=arrival[i];
+                        NumericUpDown num2=brust[i];
+                        main_menu.rr_sch.setArrivalTime(i, (int)num1.Value);
+                        main_menu.rr_sch.setBrustTime(i, (int)num2.Value);
+                    }
+                    RR_output shiko = new RR_output();
+                    main_menu.rr_sch.computeRR();
+                    shiko.Show();
+                    this.Hide();
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("please fill data");
             }

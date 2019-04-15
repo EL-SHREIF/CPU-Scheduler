@@ -14,11 +14,13 @@ namespace OSproject
     {
         public static int MainNumberOfProcesses;
         public static bool MainFCFSflag;
+        public static roundrobinschedular rr_sch;
         public static bool RRflag;
         public static bool SJF_premptive;
         public static bool SJF_non_premptive;
         public static bool P_premptive;
         public static bool P_non_premptive;
+
         public main_menu()
         {
             InitializeComponent();
@@ -93,7 +95,7 @@ namespace OSproject
                 }
                 //MessageBox.Show(selected);
             }
-            catch (Exception ex)
+            catch 
             {
                 MessageBox.Show("please fill data");
             }

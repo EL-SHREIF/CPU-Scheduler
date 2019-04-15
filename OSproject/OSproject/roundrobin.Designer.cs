@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.NumberOfProcessesDropList = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             this.FCFSBackBtn = new System.Windows.Forms.Button();
             this.FCFSSimulateBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.NumberOfProcessesDropList = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumberOfProcessesDropList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -66,6 +66,33 @@
             this.splitContainer1.SplitterDistance = 322;
             this.splitContainer1.TabIndex = 0;
             // 
+            // NumberOfProcessesDropList
+            // 
+            this.NumberOfProcessesDropList.Location = new System.Drawing.Point(554, 79);
+            this.NumberOfProcessesDropList.Maximum = new decimal(new int[] {
+            -727379968,
+            232,
+            0,
+            0});
+            this.NumberOfProcessesDropList.MaximumSize = new System.Drawing.Size(100, 0);
+            this.NumberOfProcessesDropList.Name = "NumberOfProcessesDropList";
+            this.NumberOfProcessesDropList.ReadOnly = true;
+            this.NumberOfProcessesDropList.Size = new System.Drawing.Size(72, 20);
+            this.NumberOfProcessesDropList.TabIndex = 3;
+            this.NumberOfProcessesDropList.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NumberOfProcessesDropList.ValueChanged += new System.EventHandler(this.NumberOfProcessesDropList_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(512, 79);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Q =";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // FCFSBackBtn
             // 
             this.FCFSBackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -86,6 +113,7 @@
             this.FCFSSimulateBtn.TabIndex = 0;
             this.FCFSSimulateBtn.Text = "simulate";
             this.FCFSSimulateBtn.UseVisualStyleBackColor = true;
+            this.FCFSSimulateBtn.Click += new System.EventHandler(this.FCFSSimulateBtn_Click);
             // 
             // pictureBox1
             // 
@@ -96,32 +124,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(512, 79);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Q =";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // NumberOfProcessesDropList
-            // 
-            this.NumberOfProcessesDropList.Location = new System.Drawing.Point(554, 79);
-            this.NumberOfProcessesDropList.Maximum = new decimal(new int[] {
-            -727379968,
-            232,
-            0,
-            0});
-            this.NumberOfProcessesDropList.MaximumSize = new System.Drawing.Size(100, 0);
-            this.NumberOfProcessesDropList.Name = "NumberOfProcessesDropList";
-            this.NumberOfProcessesDropList.ReadOnly = true;
-            this.NumberOfProcessesDropList.Size = new System.Drawing.Size(72, 20);
-            this.NumberOfProcessesDropList.TabIndex = 3;
-            this.NumberOfProcessesDropList.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // roundrobin
             // 
@@ -138,8 +140,8 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumberOfProcessesDropList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

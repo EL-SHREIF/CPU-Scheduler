@@ -12,6 +12,7 @@ namespace OSproject
 {
     public partial class roundrobin : Form
     {
+        public int quantum_time;
         public roundrobin()
         {
             InitializeComponent();
@@ -30,10 +31,10 @@ namespace OSproject
             Application.Exit();
         }
 
-        private void MakingLabelFCFS(int xposition,int yposition,int index)
+        private void MakingLabelFCFS(int xposition, int yposition, int index)
         {
-            
-           
+
+
             Label lbProcessName = new Label();
             lbProcessName.Size = new Size(100, 30);
             lbProcessName.Location = new Point(xposition, yposition);
@@ -45,20 +46,20 @@ namespace OSproject
         }
 
         private void MakinglabelNameOfproccess()
-         {
+        {
             Label lbProcessName = new Label();
             lbProcessName.Size = new Size(200, 50);
-            lbProcessName.Location = new Point(60,0);
+            lbProcessName.Location = new Point(60, 0);
             lbProcessName.Text = "Proccess_Name";
             lbProcessName.BackColor = Color.Azure;
             lbProcessName.TextAlign = ContentAlignment.MiddleCenter;
             lbProcessName.Font = new Font("Arial", 14);
             splitContainer1.Panel1.Controls.Add(lbProcessName);
-         }
+        }
 
         private void MakinglabelArrivalTime()
         {
-            Label lb= new Label();
+            Label lb = new Label();
             lb.Size = new Size(200, 50);
             lb.Location = new Point(60, 0);
             lb.Text = "ArrivalTime";
@@ -93,7 +94,7 @@ namespace OSproject
                 Label lbProcessName = new Label();
                 lbProcessName.Size = new Size(100, 30);
                 lbProcessName.Location = new Point(100, y);
-                lbProcessName.Text = "P"+(i+1).ToString();
+                lbProcessName.Text = "P" + (i + 1).ToString();
                 lbProcessName.BackColor = Color.Azure;
                 lbProcessName.TextAlign = ContentAlignment.MiddleCenter;
                 lbProcessName.Font = new Font("Arial", 14);
@@ -101,7 +102,7 @@ namespace OSproject
                 y += 30;
 
             }
-                
+
         }
         private void arrivalTimeCol()
         {
@@ -154,6 +155,28 @@ namespace OSproject
             main_menu main = new main_menu();
             main.Show();
             this.Hide();
+        }
+
+        private void FCFSSimulateBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                quantum_time = (int)NumberOfProcessesDropList.Value;
+                if (quantum_time == 0) MessageBox.Show("please min value of Q is 1 process");
+                else
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("please fill data");
+            }
+        }
+
+        private void NumberOfProcessesDropList_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

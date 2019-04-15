@@ -14,7 +14,6 @@ namespace OSproject
     {
         public static int MainNumberOfProcesses;
         public static bool MainFCFSflag;
-        public static roundrobinschedular rr_sch;
         public static bool RRflag;
         public static bool SJF_premptive;
         public static bool SJF_non_premptive;

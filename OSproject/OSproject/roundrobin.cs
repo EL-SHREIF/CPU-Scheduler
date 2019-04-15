@@ -15,6 +15,7 @@ namespace OSproject
         public  static int quantum_time;  
         NumericUpDown[] arrival;
         NumericUpDown[] brust;
+        public static roundrobinschedular rr_sch;
         public roundrobin()
         {
             InitializeComponent();
@@ -161,31 +162,23 @@ namespace OSproject
 
         private void FCFSSimulateBtn_Click(object sender, EventArgs e)
         {
-            try
-            {
+                rr_sch = new roundrobinschedular();
                 quantum_time = (int)NumberOfProcessesDropList.Value;
                 if (quantum_time == 0) MessageBox.Show("please min value of Q is 1");
                 else
                 {
-
-                    main_menu.rr_sch.setq(quantum_time);
+                    rr_sch.setq(quantum_time);
                     for (int i = 0; i < main_menu.MainNumberOfProcesses; i++)
                     {
                         NumericUpDown num1=arrival[i];
                         NumericUpDown num2=brust[i];
-                        main_menu.rr_sch.setArrivalTime(i, (int)num1.Value);
-                        main_menu.rr_sch.setBrustTime(i, (int)num2.Value);
+                        rr_sch.setArrivalTime(i, (int)num1.Value);
+                        rr_sch.setBrustTime(i, (int)num2.Value);
                     }
                     RR_output shiko = new RR_output();
-                    main_menu.rr_sch.computeRR();
                     shiko.Show();
                     this.Hide();
                 }
-            }
-            catch
-            {
-                MessageBox.Show("please fill data");
-            }
         }
 
         private void NumberOfProcessesDropList_ValueChanged(object sender, EventArgs e)

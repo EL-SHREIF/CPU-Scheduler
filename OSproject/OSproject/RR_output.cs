@@ -39,39 +39,37 @@ namespace OSproject
         public RR_output()
         {
             InitializeComponent();
-            rr_sch_her = main_menu.rr_sch;
+            this.rr_sch_her = roundrobin.rr_sch;
+            InitializeComponent();
+            rr_sch_her.computeRR();
+
+            
+            DrawGanttChart();
+     
         }
+
         public void DrawGanttChart()
         {
-            int xPos = 9, yPos = 10;
+            int xPos = 90, yPos = 10;
             tabPage_GanttChart.AutoScroll = true;
             tabPage_GanttChart.VerticalScroll.LargeChange = tabPage_GanttChart.VerticalScroll.Maximum / 2;
-            for (int i = 0; i < rr_sch_her.number_ganttChart; i++)
+            int i = 0;
+
+            while(rr_sch_her.process[i]!=-1)
             {
-                panelArray[i] = new Panel();
-                panelArray[i].Width = 20;
-                panelArray[i].Height = 20;
-                panelArray[i].Location = new Point(xPos, yPos);
-
-                valueGanttChart[i] = new Label();
-                valueGanttChart[i].Text = "" + i;
-                valueGanttChart[i].Font = labelEX.Font;
-                valueGanttChart[i].Size = new Size(20, 10);
-                valueGanttChart[i].Location = new Point(xPos - 4, 40);
-                valueGanttChart[i].TextAlign = ContentAlignment.MiddleLeft;
-                valueGanttChart[i].ForeColor = Color.Gray;
-                valueGanttChart[i].BackColor = Color.Transparent;
-                valueGanttChart[i].Visible = false;
-
-                xPos += panelArray[i].Width;
-                tabPage_GanttChart.Controls.Add(panelArray[i]);
-                tabPage_GanttChart.Controls.Add(valueGanttChart[i]);
+                Label v = new Label();
+                v.Text = "P" +rr_sch_her.process[i] ;
+                v.Font = labelEX.Font;
+                v.Size = new Size(150, 150);
+                v.Location = new Point(xPos - 4, 80);
+                v.TextAlign = ContentAlignment.MiddleLeft;
+                v.ForeColor = Color.Gray;
+                v.BackColor = Color.Transparent;
+                v.Visible = true;
+                xPos +=20;
+                this.Controls.Add(v);
+                i++;
             }
-        }
-
-        private void label45_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

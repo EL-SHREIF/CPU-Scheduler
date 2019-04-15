@@ -15,16 +15,19 @@ namespace OSproject
         public int[] arrivalTime;
         public int[] priority;
         public int quantumTime;
-
+        
         // After Process         
         public int[] waitingTime_RR;
         public int[] turnAroundTime_RR;
-        public int[] ganttChart_RR;
-        private int contextSwitch_RR;
+
+        public int[] start;
+        public int[] end;
+        public int[] process;
+        
         private float Avg_waitingTime_RR;
         public int num_ganttChart_RR;
 
-       public int number_ganttChart = 200;
+        public int number_ganttChart = 2000;
 
        public roundrobinschedular()
        {
@@ -34,14 +37,15 @@ namespace OSproject
             waitingTime_RR = new int[no_of_process];
             turnAroundTime_RR = new int[no_of_process];
 
-            ganttChart_RR = new int[number_ganttChart];
-
             cpu_brustTime = new int[no_of_process];
             arrivalTime = new int[no_of_process];
+            start = new int[2000];
+            end = new int[2000];
+            process= new int[2000];
 
             // Initial value in array.
             clearArrayData(); // Clear waiting time.
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < num_process; i++)
             {
                 cpu_brustTime[i] = 1;
                 arrivalTime[i] = 0;
@@ -49,7 +53,9 @@ namespace OSproject
 
             for (int i = 0; i < number_ganttChart; i++)
             {
-                ganttChart_RR[i] = -1;
+                start[i] = -1;
+                end[i] = -1;
+                process[i] = -1;
             }
 
             num_process = no_of_process;
@@ -57,7 +63,7 @@ namespace OSproject
 
         public void clearArrayData()
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < num_process; i++)
             {
                 waitingTime_RR[i] = 0;
                 turnAroundTime_RR[i] = 0;
@@ -66,7 +72,7 @@ namespace OSproject
 
         public void clearDataRR()
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < num_process; i++)
             {
                 waitingTime_RR[i] = 0;
                 turnAroundTime_RR[i] = 0;
@@ -118,140 +124,100 @@ namespace OSproject
             return Avg_waitingTime_RR;
         }
 
-        public int getContextSwitch_RR()
-        {
-            return contextSwitch_RR;
-        }
-        
         public void computeRR()
         {
             int n = num_process, index_min = 0;
             int index_process_before = -1; // not execute.
             int min_arrival;
             int j;
-            int myQuantumTime = quantumTime;
+            int q = quantumTime;
 
             process myData;
 
             List<int> temp = new List<int>();
+
             Queue<process> queueWaiting = new Queue<process>();
             List<process> myList = new List<process>();
+
+            bool [] finished= new bool [50];
+            bool [] taken= new bool [50];
 
             int count_process_incomplete = num_process;
 
             for (int i = 0; i < num_process; i++)
             {
                 myList.Add(new process(i, arrivalTime[i], cpu_brustTime[i]));
+                finished[i]= false;
+                taken[i]= false;
             }
 
-            int count = 0;
-            int temp_index = 0;
-            while (count_process_incomplete > 0)
-            { 
-                j = 0;
-                temp_index = 0;
-                if (myList.Count > 0)
+            bool end_all=true;
+            int time=0;
+            int no = 0;
+             bool ok = false;
+            while (end_all)
+            {
+                for (int i = 0; i < num_process; i++)
                 {
-                    min_arrival = myList.First().arrival;
-                    index_min = myList.First().index;
-                    for (int i = 0; i < myList.Count; i++, j++)
+                    if (time >= arrivalTime[i] && taken[i] == false)
                     {
-                        if (myList[i].arrival < min_arrival)
-                        {
-                            index_min = myList[i].index;
-                            min_arrival = myList[i].arrival;
-                            temp_index = j; 
-                        }
-                        if (myList[i].arrival <= count)
-                        {
-                            // Add process to waiting queue.
-                            queueWaiting.Enqueue(new process(myList[i].index, myList[i].arrival, myList[i].burst_time));
-                            temp.Add(i); // for delete later. 
-                            // can not delete here because it effect with loop.
-                        }
-                    }
-
-                    if (queueWaiting.Count == 0)
-                    {
-                        while (count < min_arrival)
-                        {
-                            ganttChart_RR[count] = -1;
-                            count++;
-                        }
+                        taken[i] = true;
+                        queueWaiting.Enqueue(myList[i]);
                     }
                 }
-
-                //delete value in list after move to QueueWaiting.
-                while (temp.Count != 0)
+                bool idle=false;
+                process p1;
+                if(queueWaiting.Count==0)
                 {
-                    int temp_del = temp.Max(); // remove from Back list.
-                    myList.RemoveAt(temp_del);
-                    temp.Remove(temp_del);
+                   p1=new process(1000,-1,-1);
+                    idle = true;
                 }
-
-                //queueWaiting.Add(myList[temp_index]);
-                // remove process in list.
-
-                // Find Process Minimium Brust.
-                j = 0;
-                temp_index = 0;
-                if (queueWaiting.Count > 0)
+                else
+                   {p1 = queueWaiting.Dequeue();}
+                start[no] = time;
+                process[no] = p1.index;
+                for (int i = 0; i < q; i++) {
+                    time++;
+                    if(idle){
+                        for (int jj = 0; jj < num_process; jj++)
+                             {
+                              if (time >= arrivalTime[jj] && taken[jj] == false)
+                              {
+                                 taken[jj] = true;
+                                 queueWaiting.Enqueue(myList[jj]);
+                              }
+                           }
+                    }
+                    else{
+                        p1.burst_time--;
+                          for (int k = 0; k < num_process; k++)
+                             {
+                              if (time >= arrivalTime[k] && taken[k] == false)
+                              {
+                                 taken[k] = true;
+                                 queueWaiting.Enqueue(myList[k]);
+                             }
+                           }
+                            if (p1.burst_time == 0)
+                             break;
+                         } 
+                }
+                end[no] = time;
+                if (p1.burst_time != 0)
+                    queueWaiting.Enqueue(p1);
+                else
+                    finished[p1.index] = true;
+                no++;
+                ok = true;
+                for (int i = 0; i < num_process; i++)
                 {
-                    myData = queueWaiting.Dequeue();
-
-                    if (index_process_before == -1)
-                    {
-                        index_process_before = myData.index;
-                        waitingTime_RR[myData.index] = count;
+                    if (!taken[i]) {
+                        ok = false;
                     }
-                    else if (index_process_before != myData.index)
-                    {
-                        waitingTime_RR[myData.index] += count - turnAroundTime_RR[myData.index];
-                        turnAroundTime_RR[index_process_before] = count;
-                        contextSwitch_RR++;
-                    }
-                    index_process_before = myData.index;
-
-                    // Excute 1 ms.
-                    for (int i = 0; i < myQuantumTime && myData.burst_time>0; i++)
-                    {
-                        myData.burst_time--;
-                        if (count < number_ganttChart)
-                        {
-                            ganttChart_RR[count] = myData.index;
-                        }
-                        count++;
-                    }
-
-                    if (myData.burst_time == 0)
-                    {
-                        count_process_incomplete--;
-                        turnAroundTime_RR[myData.index] = count;
-                        myData = null;
-                    }
-                    else
-                    {
-                        queueWaiting.Enqueue(new process(myData.index,myData.arrival,myData.burst_time));
-                    }   
                 }
+                if(ok & queueWaiting.Count==0)
+                    end_all=false;
             }
-
-            if (count > number_ganttChart)
-            {
-                num_ganttChart_RR = number_ganttChart;
-            }
-            else
-            {
-                num_ganttChart_RR = count;
-            }
-
-            for (int i = 0; i < num_process; i++)
-            {
-                waitingTime_RR[i] = waitingTime_RR[i] - arrivalTime[i];
-            }
-
-            turnAroundTime_RR[index_process_before]++; // increase last 1 ms last process . 
-            Avg_waitingTime_RR = waitingTime_RR.Sum() / (float)num_process;
-        } 
+        }   
     }
 }

@@ -97,6 +97,16 @@ namespace OS
                         proc[idx] = readyProcess.index;
                         cnt += quantum;
                         readyProcess.burst_time -= quantum;
+                        for (int i = 0, j = 0; j < p.Count; i++)
+                        {
+                            if (p[j].arrival <= cnt)
+                            {
+                                ready.Add(p[j]);
+                                p.RemoveAt(j);
+                            }
+                            else j++;
+
+                        }
                         ready.Add(readyProcess);
                         idx++;
                     }
@@ -106,18 +116,19 @@ namespace OS
                         end[idx] = cnt + readyProcess.burst_time;
                         proc[idx] = readyProcess.index;
                         cnt += readyProcess.burst_time;
+                        for (int i = 0, j = 0; j < p.Count; i++)
+                        {
+                            if (p[j].arrival <= cnt)
+                            {
+                                ready.Add(p[j]);
+                                p.RemoveAt(j);
+                            }
+                            else j++;
+
+                        }
                         idx++;
                     }
-                    for (int i = 0, j = 0; j < p.Count; i++)
-                    {
-                        if (p[j].arrival <= cnt)
-                        {
-                            ready.Add(p[j]);
-                            p.RemoveAt(j);
-                        }
-                        else j++;
-
-                    }
+                    
 
                 }
             }

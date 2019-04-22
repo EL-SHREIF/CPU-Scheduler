@@ -33,9 +33,14 @@ Support any number of prosesses in simmulate.and Support 6 Algorithm:
 <img src='img/4.PNG' >
 
 
-#implementation 
+# Implementation
+
 the code divided to:
+
 1-front end:
+
 the entery form then the form for choose your algorithm then for each group of algorithms you enter another form for data input that is because sometimes we need priority and sometimes quantum time then the result form
+
 2-back end:
+
 each algorithm has his own class that can be called and return the data 

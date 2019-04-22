@@ -15,13 +15,21 @@ Support any number of prosesses in simmulate.and Support 6 Algorithm:
 </table>
 
 #HOW TO RUN
+
 ##first you enter your program with this page 
+
 <img src='img/1.PNG' >
+
 ##then here you choose number of processes and the algorithm used 
+
 <img src='img/2.PNG' >
+
 ##here you can put the data of each process 
+
 <img src='img/3.PNG' >
+
 ##then you get the output of the schedular and the gantt chart here
+
 <img src='img/4.PNG' >
 
 

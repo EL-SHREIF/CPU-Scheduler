@@ -12,3 +12,6 @@ C:\Users\shiko\Desktop\OS Project\OS\OS\obj\Debug\OS.data_input_RR.resources
 C:\Users\shiko\Desktop\OS Project\OS\OS\obj\Debug\OS.data_input_sjf_fcfs.resources
 C:\Users\shiko\Desktop\OS Project\OS\OS\obj\Debug\OS.data_input_p.resources
 C:\Users\shiko\Desktop\OS Project\OS\OS\obj\Debug\OS.Results.resources
+E:\github\CPU-Scheduler\OS\OS\bin\Debug\OS.exe.config
+E:\github\CPU-Scheduler\OS\OS\obj\Debug\OS.exe
+E:\github\CPU-Scheduler\OS\OS\obj\Debug\OS.pdb

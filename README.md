@@ -44,3 +44,10 @@ the entery form then the form for choose your algorithm then for each group of a
 2-back end:
 
 each algorithm has his own class that can be called and return the data 
+
+# project in action
+
+this video explains how to use the software
+
+https://www.youtube.com/watch?v=CYK4xCxPscw&t=11s 
+
